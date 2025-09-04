@@ -18,6 +18,7 @@ import Meta from '@hackclub/meta'
 import tt from 'tinytime'
 import YouTubePlayer from 'react-player/youtube'
 import { useState, useEffect } from 'react'
+import GHSlugger from 'github-slugger'
 
 import AMARsvp from '../components/ama-rsvp'
 import { getEvents } from '../lib/data'
@@ -31,11 +32,11 @@ const Page = ({ event }) => (
   <>
     <Meta
       as={Head}
-      name="Hack Club Events"
+      name="Happy Hacking Space Events"
       title={event.title}
       description={`${event.ama ? 'An AMA hosted by' : 'An event by'} ${
         event.leader
-      } on ${fullDate(event)} at Hack Club.`}
+      } on ${fullDate(event)} at Happy Hacking Space.`}
       image={`https://workshop-cards.hackclub.com/${encodeURIComponent(
         event.title
       )}.png?brand=Events&fontSize=225px&caption=${encodeURIComponent(
@@ -328,17 +329,71 @@ export default props => {
 }
 
 export const getStaticPaths = async () => {
-  const events = await getEvents()
-  const slugs = map(events, 'slug')
-  const paths = slugs.map(slug => ({ params: { slug } }))
+  // Hem normal hem past eventleri al
+  const [upcomingEvents, pastResponse] = await Promise.all([
+    getEvents(),
+    fetch('https://api.kommunity.com/api/v1/diyarbakir-happy-hacking-space/events/past')
+  ])
+  
+  const pastData = await pastResponse.json()
+  const slugger = new GHSlugger()
+  
+  const pastEvents = pastData.data?.map((event) => ({
+    slug: slugger.slug(event.name || 'untitled')
+  })) || []
+  
+  const allSlugs = [
+    ...map(upcomingEvents, 'slug'),
+    ...map(pastEvents, 'slug')
+  ]
+  
+  const paths = allSlugs.map(slug => ({ params: { slug } }))
   return { paths, fallback: true }
 }
 
 export const getStaticProps = async ({ params }) => {
   const { slug } = params
-  const events = await getEvents()
-  const event = find(events, { slug })
+  
+  // Önce upcoming events'te ara
+  const upcomingEvents = await getEvents()
+  let event = find(upcomingEvents, { slug })
+  
+  // Bulunamazsa past events'te ara
+  if (!event) {
+    const pastResponse = await fetch('https://api.kommunity.com/api/v1/diyarbakir-happy-hacking-space/events/past')
+    const pastData = await pastResponse.json()
+    const slugger = new GHSlugger()
+    
+    const pastEvents = pastData.data?.map((eventData) => ({
+      id: eventData.id,
+      slug: slugger.slug(eventData.name || 'untitled'),
+      title: eventData.name || 'Untitled Event',
+      desc: eventData.detail || '',
+      leader: eventData.latest_users?.[0]?.name || 'Happy Hacking Space',
+      start: eventData.start_date?.date || new Date().toISOString(),
+      end: eventData.end_date?.date || new Date().toISOString(),
+      avatar: eventData.latest_users?.[0]?.avatar || 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/81/shrug_1f937.png',
+      location: eventData.venue?.name || 'Online',
+      cal: null,
+      youtube: null,
+      ama: false,
+      amaForm: false,
+      amaId: '',
+      amaAvatar: eventData.latest_users?.[0]?.avatar || '',
+      approved: true
+    })) || []
+    
+    event = find(pastEvents, { slug })
+  }
+  
+  if (!event) {
+    return { notFound: true }
+  }
+  
   event.html = await parse(event.desc)
   event.desc ??= null
-  return { props: { event }, revalidate: 2 }
+  return { 
+    props: { event }, 
+    revalidate: process.env.NODE_ENV === 'development' ? false : 3600
+  }
 }

@@ -33,21 +33,24 @@ const BackButton = ({ to = '/', text = 'All Events' }) => (
   </Link>
 )
 
-const Flag = () => (
-  <A
-    href="https://hackclub.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Hack Club homepage"
-    sx={{ mt: -3, lineHeight: 0 }}
-  >
-    <Image
-      src="https://assets.hackclub.com/flag-orpheus-top.svg"
-      alt="Hack Club flag"
-      sx={{ width: [96, 128] }}
-    />
-  </A>
-)
+const Flag = () => {
+  const [mode] = useColorMode();
+  return (
+    <A
+      href="https://happyhacking.space/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Happy Hacking Space homepage"
+      sx={{ mt: -3, lineHeight: 0 }}
+    >
+      <Image
+        src={mode === 'dark' ? '/hhs-white-wo-white.avif' : '/hhs-black-wo-black.avif'}
+        alt="Happy Hacking Space logo"
+        sx={{ height: 48, width: '48', mt: 2 }}
+      />
+    </A>
+  );
+};
 
 const ColorSwitcher = props => {
   const [mode, setMode] = useColorMode()
@@ -87,7 +90,7 @@ export default () => {
           }
         }}
       >
-        {!home ? <BackButton /> : <Flag />}
+  {!home ? <BackButton /> : <Flag />}
         <NavButton
           as="a"
           href="https://github.com/hackclub/events"

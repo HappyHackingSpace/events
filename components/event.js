@@ -7,7 +7,20 @@ const past = dt => new Date(dt) < new Date()
 const now = (start, end) =>
   new Date() > new Date(start) && new Date() < new Date(end)
 
-const Event = ({ id, slug, title, desc, leader, avatar, start, end, cal }) => (
+// Safe date formatter
+const formatDate = (dateStr, format) => {
+  try {
+    const date = new Date(dateStr)
+    if (isNaN(date.getTime())) {
+      return 'Invalid Date'
+    }
+    return tt(format).render(date)
+  } catch (error) {
+    return 'Invalid Date'
+  }
+}
+
+const Event = ({ id, slug, title, desc, leader, avatar, start, end, cal, location }) => (
   <Link href="/[slug]" as={`/${slug}`} passHref legacyBehavior>
     <Box
       as="a"
@@ -32,9 +45,9 @@ const Event = ({ id, slug, title, desc, leader, avatar, start, end, cal }) => (
         }}
       >
         <Text>
-          <strong>{tt('{MM} {Do}').render(new Date(start))}</strong>{' '}
-          {tt('{h}:{mm}').render(new Date(start))}–
-          {tt('{h}:{mm} {a}').render(new Date(end))}
+          <strong>{formatDate(start, '{MM} {Do}')}</strong>{' '}
+          {formatDate(start, '{h}:{mm}')}–
+          {formatDate(end, '{h}:{mm} {a}')}
         </Text>
       </Box>
       <Heading variant="subheadline" sx={{ mt: 0, mb: 1 }}>
@@ -57,6 +70,17 @@ const Event = ({ id, slug, title, desc, leader, avatar, start, end, cal }) => (
         )}
         <Text as="span">{leader}</Text>
       </Flex>
+      {location && (
+        <Text
+          sx={{
+            color: 'muted',
+            fontSize: 1,
+            mt: 1
+          }}
+        >
+          📍 {location}
+        </Text>
+      )}
       {now(start, end) && (
         <Sparkles
           aria-hidden

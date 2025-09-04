@@ -1,6 +1,6 @@
-<p align="center"><img width="192" alt="Hack Club logo" src="https://assets.hackclub.com/flag-standalone.svg"></p>
-<h1 align="center"><a href="https://events.hackclub.com/">Hack Club Events</a></h1>
-<p align="center"><i>The source code for events.hackclub.com</i></p>
+<p align="center"><img width="192" alt="Happy Hacking Space logo" src="/public/hhs-black-wo-black.avif"></p>
+<h1 align="center"><a href="https://happyhacking.space/events">Happy Hacking Space Events</a></h1>
+<p align="center"><i>The source code for happyhacking.space/events</i></p>
 
 ## Development
 
@@ -8,7 +8,7 @@ To get started, run the following in your terminal:
 
 Download the code to your computer:
 
-    $ git clone https://github.com/hackclub/events && cd events
+    $ git clone https://github.com/HappyHackingSpace/events && cd events
 
 Install dependencies:
 
