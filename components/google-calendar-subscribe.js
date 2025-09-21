@@ -115,24 +115,6 @@ const GoogleCalendarSubscribe = () => {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <Box sx={{ textAlign: 'right', mb: 2 }}>
-              <Button
-                onClick={() => setShowPopup(false)}
-                sx={{
-                  bg: 'transparent',
-                  color: 'text',
-                  border: 'none',
-                  fontSize: 3,
-                  cursor: 'pointer',
-                  p: 1,
-                  '&:hover': {
-                    bg: 'muted'
-                  }
-                }}
-              >
-                ×
-              </Button>
-            </Box>
             
             <Box sx={{ textAlign: 'center' }}>
               <Calendar size={48} sx={{ color: 'primary', mb: 3, mx: 'auto' }} />
