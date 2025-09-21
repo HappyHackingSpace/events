@@ -137,22 +137,22 @@ const GoogleCalendarSubscribe = () => {
             <Box sx={{ textAlign: 'center' }}>
               <Calendar size={48} sx={{ color: 'primary', mb: 3, mx: 'auto' }} />
               <Box as="h3" sx={{ fontSize: 3, fontWeight: 'bold', mb: 3, color: 'text' }}>
-                Google Calendar'a Ekle
+                Add to Google Calendar
               </Box>
               
               <Box sx={{ textAlign: 'left', mb: 4, color: 'text', lineHeight: 1.6 }}>
                 <Box as="p" sx={{ mb: 2 }}>
-                  Happy Hacking Space etkinliklerini takviminize eklemek için:
+                  To add Happy Hacking Space events to your calendar:
                 </Box>
                 <Box as="ol" sx={{ pl: 3, mb: 3 }}>
                   <Box as="li" sx={{ mb: 2 }}>
-                    Google Calendar'ı açın ve sol menüden "Diğer takvimler" bölümündeki "+" işaretine tıklayın
+                    Open Google Calendar and click the "+" sign in the "Other calendars" section on the left menu
                   </Box>
                   <Box as="li" sx={{ mb: 2 }}>
-                    "URL'den" seçeneğini seçin
+                    Select the "From URL" option
                   </Box>
                   <Box as="li" sx={{ mb: 2 }}>
-                    Şu URL'yi yapıştırın:
+                    Paste the following URL:
                     <Box
                       sx={{
                         bg: 'muted',
@@ -168,7 +168,7 @@ const GoogleCalendarSubscribe = () => {
                     </Box>
                   </Box>
                   <Box as="li">
-                    "Takvim ekle" butonuna tıklayın
+                    Click the "Add calendar" button
                   </Box>
                 </Box>
               </Box>
@@ -188,7 +188,7 @@ const GoogleCalendarSubscribe = () => {
                     fontWeight: 'bold'
                   }}
                 >
-                  Anladım
+                  Got it
                 </Button>
                 
                 <Button
@@ -207,7 +207,7 @@ const GoogleCalendarSubscribe = () => {
                     fontWeight: 'bold'
                   }}
                 >
-                  Google Calendar'a Git
+                  Go to Google Calendar
                 </Button>
               </Box>
             </Box>
