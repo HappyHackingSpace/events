@@ -306,7 +306,7 @@ const Subscribe = () => (
   <Button
     as="a"
     target="_blank"
-    href="https://www.youtube.com/hackclubhq"
+    href="https://www.youtube.com/@happyhackingspace"
     sx={{ bg: 'red', color: 'white', mb: [3, 4] }}
   >
     <Youtube />

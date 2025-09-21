@@ -37,7 +37,7 @@ const useForm = (
   const { method = 'post' } = options
   const action =
     submitURL?.startsWith('/') && process.env.NODE_ENV !== 'development'
-      ? `https://events.hackclub.com${submitURL}`
+      ? `https://events.happyhacking.space${submitURL}`
       : submitURL
 
   const onSubmit = e => {

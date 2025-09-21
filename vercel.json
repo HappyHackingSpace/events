@@ -3,11 +3,11 @@
   "rewrites": [
     {
       "source": "/arts-gala",
-      "destination": "https://arts-gala.hackclub.dev/"
+      "destination": "https://arts-gala.happyhacking.space/"
     },
     {
       "source": "/arts-gala/_next/:path*",
-      "destination": "https://arts-gala.hackclub.dev/_next/:path*"
+      "destination": "https://arts-gala.happyhacking.space/_next/:path*"
     }
   ],
   "headers": [
