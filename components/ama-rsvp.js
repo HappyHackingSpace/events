@@ -19,7 +19,7 @@ const AMARsvp = ({ id, amaId }) => {
             color: 'white'
           }}
         >
-          RSVP via the Hack Club Slack
+          RSVP via the Happy Hacking Space Slack
         </Button>
       </Link>
     </Card>

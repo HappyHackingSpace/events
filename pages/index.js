@@ -1,6 +1,7 @@
 import { Container, Box, Text, Heading, Button, Link as A } from 'theme-ui'
 import Link from 'next/link'
 import Month from '../components/month'
+import GoogleCalendarSubscribe from '../components/google-calendar-subscribe'
 import { Activity, SkipBack } from 'react-feather'
 import { getUpcomingMonthly } from './api/events/upcoming-monthly'
 
@@ -17,15 +18,18 @@ export default ({ months }) => (
       }}
     >
       <Heading as="h1" variant="title" color="primary" mb={2}>
-        Hack Club Events
+        Happy Hacking Space Events
       </Heading>
       <Text as="p" variant="subtitle">
         AMAs, show & tells, & weekly fun in the{' '}
-        <A href="https://hackclub.com/">Hack Club</A> community.
+        <A href="https://happyhacking.space/">Happy Hacking Space</A> community.
       </Text>
       <Text as="p" variant="subtitle" mt={2}>
         All dates/times in your local time.
       </Text>
+      <Box sx={{ mt: 3 }}>
+        <GoogleCalendarSubscribe />
+      </Box>
     </Box>
     <Container as="main" px={0}>
       {Object.keys(months).map(key => (
@@ -50,12 +54,12 @@ export default ({ months }) => (
             View past events
           </Button>
         </Link>
-        <Link href="/data" passHref legacyBehavior>
+        {/* <Link href="/data" passHref legacyBehavior>
           <Button as="a">
             <Activity />
             Events API
           </Button>
-        </Link>
+        </Link> */}
       </Box>
     </Container>
   </>
@@ -63,5 +67,8 @@ export default ({ months }) => (
 
 export const getStaticProps = async () => {
   const months = await getUpcomingMonthly()
-  return { props: { months }, revalidate: 1 }
+  return { 
+    props: { months }, 
+    revalidate: process.env.NODE_ENV === 'development' ? false : 3600 // Development'ta cache yok, production'da 1 saat
+  }
 }

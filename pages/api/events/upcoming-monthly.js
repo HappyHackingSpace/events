@@ -7,11 +7,24 @@ export const getUpcomingMonthly = async () => {
   // Filter out events from previous months
   events = filter(
     events,
-    e =>
-      new Date(new Date(e.end.substring(0, 7)).toISOString().substring(0, 7)) >=
-      new Date(new Date().toISOString().substring(0, 7))
+    e => {
+      if (!e.end || typeof e.end !== 'string') return true
+      try {
+        return new Date(new Date(e.end.substring(0, 7)).toISOString().substring(0, 7)) >=
+               new Date(new Date().toISOString().substring(0, 7))
+      } catch (error) {
+        return true
+      }
+    }
   )
-  return groupBy(events, e => e.start?.substring(0, 7))
+  return groupBy(events, e => {
+    if (!e.start || typeof e.start !== 'string') return 'unknown'
+    try {
+      return e.start.substring(0, 7)
+    } catch (error) {
+      return 'unknown'
+    }
+  })
 }
 
 export default (req, res) => getUpcomingMonthly().then(m => res.json(m))

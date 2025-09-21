@@ -8,8 +8,8 @@ export default () => (
     <Meta
       as={Head}
       title="Data API"
-      name="Hack Club Events"
-      description="API for Hack Club Events."
+      name="Happy Hacking Space Events"
+      description="API for Happy Hacking Space Events."
       image="https://events.hackclub.com/card.png"
     />
     <Container as={BaseStyles} variant="copy" sx={{ py: 3, fontSize: 2 }}>
