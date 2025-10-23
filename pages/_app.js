@@ -1,9 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
 
-import Meta from '@hackclub/meta'
-import '@hackclub/theme/fonts/reg-bold.css'
-import theme from '@hackclub/theme'
+import Meta from '@happyhackingspace/meta'
+import '@happyhackingspace/theme/fonts/reg-bold.css'
+import theme from '@happyhackingspace/theme'
 import { ThemeUIProvider } from 'theme-ui'
 import Nav from '../components/nav'
 

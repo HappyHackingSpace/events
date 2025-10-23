@@ -13,8 +13,8 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@hackclub/meta": "^1.0.0",
-    "@hackclub/theme": "^0.3.0",
+    "@happyhackingspace/meta": "^1.0.0",
+    "@happyhackingspace/theme": "^0.3.0",
     "@mdx-js/loader": "^3.1.0",
     "@next/mdx": "15.0.3",
     "date-fns": "^4.1.0",

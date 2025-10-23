@@ -14,7 +14,7 @@ import {
 import { Calendar, Youtube } from 'react-feather'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import Meta from '@hackclub/meta'
+import Meta from '@happyhackingspace/meta'
 import tt from 'tinytime'
 import YouTubePlayer from 'react-player/youtube'
 import { useState, useEffect } from 'react'
