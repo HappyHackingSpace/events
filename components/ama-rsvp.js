@@ -10,17 +10,19 @@ const AMARsvp = ({ id, amaId }) => {
         Click the button below.
       </Text>
       <Link href={`https://ama-machine.hackclub.com/rsvp/${amaId}`}>
-        <Button
-          as="button"
-          type="submit"
-          sx={{
-            gridColumn: 'span 2',
-            justifyContent: 'center',
-            color: 'white'
-          }}
-        >
-          RSVP via the Happy Hacking Space Slack
-        </Button>
+              <Button
+        as="a"
+        href={`https://ama-machine.hackclub.com/rsvp/${amaId}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        sx={{
+          gridColumn: 'span 2',
+          justifyContent: 'center',
+          color: 'white'
+        }}
+      >
+        RSVP via the Happy Hacking Space Slack
+      </Button>
       </Link>
     </Card>
   )
