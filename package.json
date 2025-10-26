@@ -14,7 +14,6 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@happyhackingspace/theme": "^0.3.0",
     "@happyhackingspace/meta": "^0.0.2",
     "@happyhackingspace/theme": "^0.0.2",
     "@mdx-js/loader": "^3.1.0",
