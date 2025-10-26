@@ -54,12 +54,12 @@ export default ({ months }) => (
             View past events
           </Button>
         </Link>
-        {/* <Link href="/data" passHref legacyBehavior>
-          <Button as="a">
+        <Link href="/data" passHref legacyBehavior>
+          <Button as="a" variant="outline">
             <Activity />
             Events API
           </Button>
-        </Link> */}
+        </Link>
       </Box>
     </Container>
   </>

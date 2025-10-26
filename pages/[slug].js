@@ -39,7 +39,8 @@ const Page = ({ event }) => (
       description={`${event.ama ? 'An AMA hosted by' : 'An event by'} ${
         event.leader
       } on ${fullDate(event)} at Happy Hacking Space.`}
-      image={`https://workshop-cards.hackclub.com/${encodeURIComponent(
+      //this area will change
+      image={`https://workshop-cards.happyhacking.space/${encodeURIComponent(
         event.title
       )}.png?brand=Events&fontSize=225px&caption=${encodeURIComponent(
         `${event.leader} – ${fullDate(event)}`
@@ -187,7 +188,7 @@ const Page = ({ event }) => (
             <Card sx={{ margin: event.amaForm ? 'default' : 'auto' }}>
               <Heading as="h2" variant="headline" mt={0}>
                 Not part of the{' '}
-                <Link href="https://hackclub.com/">Hack&nbsp;Club</Link> Slack?
+                <Link href="https://happyhacking.space/">Happy Hacking Space</Link> Slack?
               </Heading>
               <Text variant="subtitle" mb={[3, 4]}>
                 We’ll post the event recording to YouTube.
@@ -315,7 +316,7 @@ const Subscribe = () => (
   <Button
     as="a"
     target="_blank"
-    href="https://www.youtube.com/hackclubhq"
+    href="https://www.youtube.com/@HappyHackingSpace"
     sx={{ bg: 'red', color: 'white', mb: [3, 4] }}
   >
     <Youtube />
