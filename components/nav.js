@@ -1,3 +1,4 @@
+
 import { ArrowLeft, Moon, GitHub } from 'react-feather'
 import { Box, Container, IconButton, Image, Link as A } from 'theme-ui'
 import { useColorMode } from 'theme-ui'
@@ -93,7 +94,7 @@ export default () => {
   {!home ? <BackButton /> : <Flag />}
         <NavButton
           as="a"
-          href="https://github.com/happyhackingspace/events"
+          href="https://github.com/hackclub/events"
           aria-label="View source code on GitHub"
           sx={{ ml: 'auto' }}
         >

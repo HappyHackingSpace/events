@@ -1,3 +1,4 @@
+
 import { Button, Box } from 'theme-ui'
 import { Calendar } from 'react-feather'
 import { useState } from 'react'
@@ -115,6 +116,24 @@ const GoogleCalendarSubscribe = () => {
             }}
             onClick={(e) => e.stopPropagation()}
           >
+            <Box sx={{ textAlign: 'right', mb: 2 }}>
+              <Button
+                onClick={() => setShowPopup(false)}
+                sx={{
+                  bg: 'transparent',
+                  color: 'text',
+                  border: 'none',
+                  fontSize: 3,
+                  cursor: 'pointer',
+                  p: 1,
+                  '&:hover': {
+                    bg: 'muted'
+                  }
+                }}
+              >
+                ×
+              </Button>
+            </Box>
             
             <Box sx={{ textAlign: 'center' }}>
               <Calendar size={48} sx={{ color: 'primary', mb: 3, mx: 'auto' }} />
@@ -128,13 +147,13 @@ const GoogleCalendarSubscribe = () => {
                 </Box>
                 <Box as="ol" sx={{ pl: 3, mb: 3 }}>
                   <Box as="li" sx={{ mb: 2 }}>
-                    Open Google Calendar and click the "+" sign in the "Other calendars" section on the left menu
+                    Open Google Calendar and click the "+" button in the "Other calendars" section on the left menu
                   </Box>
                   <Box as="li" sx={{ mb: 2 }}>
-                    Select the "From URL" option
+                    Select "From URL" option
                   </Box>
                   <Box as="li" sx={{ mb: 2 }}>
-                    Paste the following URL:
+                    Paste this URL:
                     <Box
                       sx={{
                         bg: 'muted',

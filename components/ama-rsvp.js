@@ -1,3 +1,4 @@
+
 import { Button, Card, Heading, Text, Link } from 'theme-ui'
 
 const AMARsvp = ({ id, amaId }) => {
@@ -9,18 +10,20 @@ const AMARsvp = ({ id, amaId }) => {
       <Text variant="subtitle" mb={[3, 4]}>
         Click the button below.
       </Text>
-      <Link href={`https://ama-machine.happyhacking.space/rsvp/${amaId}`}>
-        <Button
-          as="button"
-          type="submit"
-          sx={{
-            gridColumn: 'span 2',
-            justifyContent: 'center',
-            color: 'white'
-          }}
-        >
-          RSVP via the Happy Hacking Space Slack
-        </Button>
+      <Link href={`https://ama-machine.hackclub.com/rsvp/${amaId}`}>
+              <Button
+        as="a"
+        href={`https://ama-machine.hackclub.com/rsvp/${amaId}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        sx={{
+          gridColumn: 'span 2',
+          justifyContent: 'center',
+          color: 'white'
+        }}
+      >
+        RSVP via the Happy Hacking Space Slack
+      </Button>
       </Link>
     </Card>
   )

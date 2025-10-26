@@ -1,3 +1,4 @@
+
 // Full credit to https://joshwcomeau.com/react/animated-sparkles-in-react/
 import React from 'react'
 import styled from '@emotion/styled'
@@ -38,14 +39,12 @@ const Sparkles = ({
   const prefersReducedMotion = usePrefersReducedMotion()
   useRandomInterval(
     () => {
-      const sparkle = generateSparkle(getColor())
-      const now = Date.now()
-      const nextSparkles = sparkles.filter(sp => {
-        const delta = now - sp.createdAt
-        return delta < 750
+      setSparkles(prev => {
+        const now = Date.now()
+        const next = prev.filter(sp => now - sp.createdAt < 750)
+        next.push(generateSparkle(getColor()))
+        return next
       })
-      nextSparkles.push(sparkle)
-      setSparkles(nextSparkles)
     },
     prefersReducedMotion ? null : 50,
     prefersReducedMotion ? null : 450
