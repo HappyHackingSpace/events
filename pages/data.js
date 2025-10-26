@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Meta from '@hackclub/meta'
+import Meta from '@happyhackingspace/meta'
 import { Container, BaseStyles } from 'theme-ui'
 import Content from '../components/api.mdx'
 
