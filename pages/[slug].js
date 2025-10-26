@@ -256,7 +256,7 @@ const EventDescription = ({ html: initialHTML }) => {
       const emojis = await getEmojis()
       if (!emojis) return
 
-      const htmlWithEmojis = html.replace(emojiRegex, match => {
+      const htmlWithEmojis = initialHTML.replace(emojiRegex, match => {
         const emojiName = match.slice(1, -1)
         const emojiURL = emojis[emojiName]
 
@@ -274,7 +274,7 @@ const EventDescription = ({ html: initialHTML }) => {
       setHtml(sanitizedHTML)
     }
     replaceEmoji()
-  }, [])
+  }, [initialHTML, emojiRegex])
 
   return (
     <Text
