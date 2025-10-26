@@ -8,13 +8,8 @@ export const getUpcomingMonthly = async () => {
   events = filter(
     events,
     e => {
-      if (!e.end || typeof e.end !== 'string') return true
-      try {
-        return new Date(new Date(e.end.substring(0, 7)).toISOString().substring(0, 7)) >=
-               new Date(new Date().toISOString().substring(0, 7))
-      } catch (error) {
-        return true
-      }
+      if (!e.end || typeof e.end !== 'string') return false
+      return e.end.substring(0, 7) >= new Date().toISOString().substring(0, 7)
     }
   )
   return groupBy(events, e => {
