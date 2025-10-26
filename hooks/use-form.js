@@ -35,10 +35,10 @@ const useForm = (
     }
   }
 
-  const { method = 'post' } = options
+  const { method = 'post', origin = process.env.NEXT_PUBLIC_SITE_ORIGIN || 'https://happyhacking.space' } = options
   const action =
     submitURL?.startsWith('/') && process.env.NODE_ENV !== 'development'
-      ? `https://events.hackclub.com${submitURL}`
+      ? `${origin}${submitURL}`
       : submitURL
 
   const onSubmit = e => {
