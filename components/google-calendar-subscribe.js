@@ -1,3 +1,4 @@
+
 import { Button, Box } from 'theme-ui'
 import { Calendar } from 'react-feather'
 import { useState } from 'react'
@@ -217,5 +218,3 @@ const GoogleCalendarSubscribe = () => {
     </>
   )
 }
-
-export default GoogleCalendarSubscribe
