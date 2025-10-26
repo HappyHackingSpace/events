@@ -20,6 +20,7 @@ import tt from 'tinytime'
 import YouTubePlayer from 'react-player/youtube'
 import { useState, useEffect } from 'react'
 import GHSlugger from 'github-slugger'
+import DOMPurify from 'isomorphic-dompurify'
 
 import AMARsvp from '../components/ama-rsvp'
 import { getEvents } from '../lib/data'
@@ -255,15 +256,22 @@ const EventDescription = ({ html: initialHTML }) => {
       const emojis = await getEmojis()
       if (!emojis) return
 
-      setHtml(
-        html.replace(emojiRegex, match => {
-          const emojiName = match.slice(1, -1)
-          const emojiURL = emojis[emojiName]
+      const htmlWithEmojis = html.replace(emojiRegex, match => {
+        const emojiName = match.slice(1, -1)
+        const emojiURL = emojis[emojiName]
 
-          if (!emojiURL || !emojiURL.startsWith('http')) return match
-          return `<img src="${emojiURL}" alt="${emojiName}" style="height: 1em; vertical-align: text-bottom;" />`
-        })
-      )
+        if (!emojiURL || !emojiURL.startsWith('http')) return match
+        return `<img src="${emojiURL}" alt="${emojiName}" style="height: 1em; vertical-align: text-bottom;" />`
+      })
+
+      // Sanitize the HTML after emoji replacement to prevent XSS attacks
+      const sanitizedHTML = DOMPurify.sanitize(htmlWithEmojis, {
+        ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'b', 'i', 'u', 'ul', 'ol', 'li', 'a', 'img', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'code', 'pre'],
+        ALLOWED_ATTR: ['href', 'src', 'alt', 'style', 'target', 'rel'],
+        ALLOW_DATA_ATTR: false
+      })
+
+      setHtml(sanitizedHTML)
     }
     replaceEmoji()
   }, [])
