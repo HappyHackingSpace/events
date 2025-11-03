@@ -94,7 +94,7 @@ export default () => {
   {!home ? <BackButton /> : <Flag />}
         <NavButton
           as="a"
-          href="https://github.com/hackclub/events"
+          href="https://github.com/happyhackingspace/events"
           aria-label="View source code on GitHub"
           sx={{ ml: 'auto' }}
         >

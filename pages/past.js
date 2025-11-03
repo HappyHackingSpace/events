@@ -2,6 +2,7 @@ import { Container, Box, Heading } from 'theme-ui'
 import Month from '../components/month'
 import { filter, groupBy, orderBy } from 'lodash'
 import GHSlugger from 'github-slugger'
+import { fetchWithTimeout } from '../lib/data'
 
 export default ({ months }) => (
   <>
@@ -31,36 +32,52 @@ export default ({ months }) => (
 )
 
 export const getStaticProps = async () => {
-  // Past events için ayrı API endpoint kullan
-  const response = await fetch('https://api.kommunity.com/api/v1/diyarbakir-happy-hacking-space/events/past')
-  const data = await response.json()
-  const slugger = new GHSlugger()
-  
-  let events = data.data?.map((event) => ({
-    id: event.id,
-    slug: slugger.slug(event.name || 'untitled'),
-    title: event.name || 'Untitled Event',
-    desc: event.detail || '',
-    leader: event.latest_users?.[0]?.name || 'Happy Hacking Space',
-    start: event.start_date?.date || new Date().toISOString(),
-    end: event.end_date?.date || new Date().toISOString(),
-    avatar: event.latest_users?.[0]?.avatar || 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/81/shrug_1f937.png',
-    location: event.venue?.name || 'Online'
-  })) || []
-  
-  // En yeni tarihten eskiye doğru sırala
-  events = orderBy(events, 'start', 'desc')
-  
-  let months = groupBy(events, e => e.start ? e.start.substring(0, 7) : 'unknown')
+  try {
+    // Use consistent fetchWithTimeout from lib/data.js
+    const response = await fetchWithTimeout('https://api.kommunity.com/api/v1/diyarbakir-happy-hacking-space/events/past')
+    const data = await response.json()
+    const slugger = new GHSlugger()
+    
+    // Create lightweight events without large desc field to reduce payload size
+    // The desc field can contain large HTML content that pushes page data over 128kB
+    let events = data.data?.map((event) => ({
+      id: event.id,
+      slug: slugger.slug(event.name || 'untitled'),
+      title: event.name || 'Untitled Event',
+      // Remove desc field to reduce payload - details can be fetched on individual event pages
+      leader: event.latest_users?.[0]?.name || 'Happy Hacking Space',
+      start: event.start_date?.date || new Date().toISOString(),
+      end: event.end_date?.date || new Date().toISOString(),
+      avatar: event.latest_users?.[0]?.avatar || 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/81/shrug_1f937.png',
+      location: event.venue?.name || 'Online'
+    })) || []
+    
+    // Sort from newest to oldest
+    events = orderBy(events, 'start', 'desc')
+    
+    // Group by month (YYYY-MM format)
+    let months = groupBy(events, e => e.start ? e.start.substring(0, 7) : 'unknown')
 
-  Object.keys(months).forEach(
-    (k, i) =>
-      (months[k] = months[k].map(event => {
-        return { ...event, desc: event.desc ?? null }
+    // Clean up months data - no need to process desc since we removed it
+    Object.keys(months).forEach((monthKey) => {
+      months[monthKey] = months[monthKey].map(event => ({
+        ...event,
+        // Ensure consistent data structure for the Month component
+        desc: null // Explicitly set to null for consistency
       }))
-  )
-  return { 
-    props: { months }, 
-    revalidate: process.env.NODE_ENV === 'development' ? false : 3600 // Development'ta cache yok, production'da 1 saat
+    })
+    
+    return { 
+      props: { months }, 
+      revalidate: process.env.NODE_ENV === 'development' ? false : 3600
+    }
+  } catch (error) {
+    console.error('Failed to fetch past events:', error.message || error)
+    
+    // Return empty months object on error to prevent build failure
+    return {
+      props: { months: {} },
+      revalidate: 300 // Retry more frequently on error (5 minutes)
+    }
   }
 }
