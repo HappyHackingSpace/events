@@ -202,14 +202,18 @@ const Page = ({ event }) => (
   </>
 )
 
-let emojisRecachedThisPageload = false
 /**
  * Gets a full list of emojis from the Badger API.
  * Caches the result, and uses results from previous page loads but re-fetches in the background for future page loads.
  * This is necessary because we currently need to download _every_ emoji on each page load, which can take multiple seconds.
  * It would be nice if Badger could cache and only send emojis we need.
  */
+// TODO: Badger API (https://badger.hackclub.dev/api/emoji/) currently returns empty response
+// The API endpoint is configured to fetch emojis from Slack API but the OAUTH token is missing/invalid
+// Once the token is properly configured on the Badger server, this can be re-enabled
+/*
 async function getEmojis(bypassCache = false) {
+  let emojisRecachedThisPageload = false
   if (!bypassCache) {
     const cached = localStorage.getItem('emojis')
     if (cached) {
@@ -230,15 +234,29 @@ async function getEmojis(bypassCache = false) {
   }
 
   try {
-    const emojiData = await (
-      await fetch('https://badger.hackclub.dev/api/emoji/')
-    ).json()
+    const response = await fetch('https://badger.hackclub.dev/api/emoji/')
+
+    if (!response.ok) {
+      throw new Error(`API returned ${response.status}`)
+    }
+
+    const text = await response.text()
+    if (!text) {
+      throw new Error('API returned empty response')
+    }
+
+    const emojiData = JSON.parse(text)
     localStorage.setItem('emojis', JSON.stringify(emojiData))
     return emojiData
   } catch (e) {
     console.error('Failed to fetch emojis:', e)
     return null
   }
+}
+*/
+async function getEmojis() {
+  console.warn('Emoji fetching is currently disabled - Badger API OAUTH token is not configured')
+  return null
 }
 
 /**
@@ -344,19 +362,19 @@ export const getStaticPaths = async () => {
     getEvents(),
     fetch('https://api.kommunity.com/api/v1/diyarbakir-happy-hacking-space/events/past')
   ])
-  
+
   const pastData = await pastResponse.json()
   const slugger = new GHSlugger()
-  
+
   const pastEvents = pastData.data?.map((event) => ({
-    slug: slugger.slug(event.name || 'untitled')
+    slug: event.slug || slugger.slug(event.name || 'untitled')
   })) || []
-  
+
   const allSlugs = [
     ...map(upcomingEvents, 'slug'),
     ...map(pastEvents, 'slug')
   ]
-  
+
   const paths = allSlugs.map(slug => ({ params: { slug } }))
   return { paths, fallback: true }
 }
@@ -373,10 +391,10 @@ export const getStaticProps = async ({ params }) => {
     const pastResponse = await fetch('https://api.kommunity.com/api/v1/diyarbakir-happy-hacking-space/events/past')
     const pastData = await pastResponse.json()
     const slugger = new GHSlugger()
-    
+
     const pastEvents = pastData.data?.map((eventData) => ({
       id: eventData.id,
-      slug: slugger.slug(eventData.name || 'untitled'),
+      slug: eventData.slug || slugger.slug(eventData.name || 'untitled'),
       title: eventData.name || 'Untitled Event',
       desc: eventData.detail || '',
       leader: eventData.latest_users?.[0]?.name || 'Happy Hacking Space',
@@ -392,7 +410,7 @@ export const getStaticProps = async ({ params }) => {
       amaAvatar: eventData.latest_users?.[0]?.avatar || '',
       approved: true
     })) || []
-    
+
     event = find(pastEvents, { slug })
   }
   
