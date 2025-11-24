@@ -344,19 +344,19 @@ export const getStaticPaths = async () => {
     getEvents(),
     fetch('https://api.kommunity.com/api/v1/diyarbakir-happy-hacking-space/events/past')
   ])
-  
+
   const pastData = await pastResponse.json()
   const slugger = new GHSlugger()
-  
+
   const pastEvents = pastData.data?.map((event) => ({
-    slug: slugger.slug(event.name || 'untitled')
+    slug: event.slug || slugger.slug(event.name || 'untitled')
   })) || []
-  
+
   const allSlugs = [
     ...map(upcomingEvents, 'slug'),
     ...map(pastEvents, 'slug')
   ]
-  
+
   const paths = allSlugs.map(slug => ({ params: { slug } }))
   return { paths, fallback: true }
 }
@@ -373,10 +373,10 @@ export const getStaticProps = async ({ params }) => {
     const pastResponse = await fetch('https://api.kommunity.com/api/v1/diyarbakir-happy-hacking-space/events/past')
     const pastData = await pastResponse.json()
     const slugger = new GHSlugger()
-    
+
     const pastEvents = pastData.data?.map((eventData) => ({
       id: eventData.id,
-      slug: slugger.slug(eventData.name || 'untitled'),
+      slug: eventData.slug || slugger.slug(eventData.name || 'untitled'),
       title: eventData.name || 'Untitled Event',
       desc: eventData.detail || '',
       leader: eventData.latest_users?.[0]?.name || 'Happy Hacking Space',
@@ -392,7 +392,7 @@ export const getStaticProps = async ({ params }) => {
       amaAvatar: eventData.latest_users?.[0]?.avatar || '',
       approved: true
     })) || []
-    
+
     event = find(pastEvents, { slug })
   }
   
