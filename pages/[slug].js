@@ -360,7 +360,7 @@ export const getStaticPaths = async () => {
   // Hem normal hem past eventleri al
   const [upcomingEvents, pastResponse] = await Promise.all([
     getEvents(),
-    fetch('https://api.kommunity.com/api/v1/diyarbakir-happy-hacking-space/events/past')
+    fetch('https://api.kommunity.com/api/v1/happyhackingspace/events/past')
   ])
 
   const pastData = await pastResponse.json()
@@ -388,7 +388,7 @@ export const getStaticProps = async ({ params }) => {
   
   // Bulunamazsa past events'te ara
   if (!event) {
-    const pastResponse = await fetch('https://api.kommunity.com/api/v1/diyarbakir-happy-hacking-space/events/past')
+    const pastResponse = await fetch('https://api.kommunity.com/api/v1/happyhackingspace/events/past')
     const pastData = await pastResponse.json()
     const slugger = new GHSlugger()
 
