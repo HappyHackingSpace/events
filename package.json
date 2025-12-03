@@ -23,7 +23,7 @@
     "isomorphic-dompurify": "^2.30.1",
     "lodash": "^4.17.21",
     "marked": "^15.0.1",
-    "next": "15.0.3",
+    "next": "15.4.8",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "react-feather": "^2.0.8",
