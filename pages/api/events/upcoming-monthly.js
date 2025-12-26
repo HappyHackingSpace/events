@@ -8,7 +8,8 @@ export const getUpcomingMonthly = async () => {
     events,
     e => {
       if (!e.end || typeof e.end !== 'string') return false
-      return e.end.substring(0, 7) >= new Date().toISOString().substring(0, 7)
+      if (e.isCanceled) return false
+      return new Date(e.end) >= new Date()
     }
   )
   return groupBy(events, e => {

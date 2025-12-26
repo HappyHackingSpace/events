@@ -35,7 +35,6 @@ const BackButton = ({ to = '/', text = 'All Events' }) => (
 )
 
 const Flag = () => {
-  const [mode] = useColorMode();
   return (
     <A
       href="https://happyhacking.space/"
@@ -45,9 +44,9 @@ const Flag = () => {
       sx={{ mt: -3, lineHeight: 0 }}
     >
       <Image
-        src={mode === 'dark' ? '/hhs-white-wo-white.avif' : '/hhs-black-wo-black.avif'}
-        alt="Happy Hacking Space logo"
-        sx={{ height: 48, width: '48', mt: 2 }}
+        src="https://assets.happyhacking.space/flag-standalone.svg"
+        alt="Happy Hacking Space flag"
+        sx={{ height: 64, width: 112, mt: 2 }}
       />
     </A>
   );

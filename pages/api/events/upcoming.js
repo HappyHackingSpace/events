@@ -3,14 +3,14 @@ import { getEvents } from '../../../lib/data'
 
 export default async (req, res) => {
   let events = await getEvents()
-  // Filter out events from previous months
+  // Filter out past and cancelled events
   events = filter(
     events,
     e => {
       if (!e.end || typeof e.end !== 'string') return true
+      if (e.isCanceled) return false
       try {
-        return new Date(new Date(e.end.substring(0, 7)).toISOString().substring(0, 7)) >=
-               new Date(new Date().toISOString().substring(0, 7))
+        return new Date(e.end) >= new Date()
       } catch (error) {
         return true
       }

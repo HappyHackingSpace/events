@@ -49,6 +49,19 @@ const Page = ({ event }) => (
       }`}
     />
     <Box as="header" sx={{ bg: 'sheet' }}>
+      {event.photo && (
+        <Box
+          as="img"
+          src={event.photo}
+          alt={event.title}
+          sx={{
+            width: '100%',
+            height: ['200px', '300px'],
+            objectFit: 'cover',
+            display: 'block'
+          }}
+        />
+      )}
       <Container sx={{ textAlign: 'center', pt: [3, 4], pb: [3, 4] }}>
         <Heading as="h1" variant="title" sx={{ mb: 2 }}>
           {event.title}
@@ -398,6 +411,7 @@ export const getStaticProps = async ({ params }) => {
       title: eventData.name || 'Untitled Event',
       desc: eventData.detail || '',
       leader: eventData.latest_users?.[0]?.name || 'Happy Hacking Space',
+      leaderUsername: eventData.latest_users?.[0]?.username || '',
       start: eventData.start_date?.date || new Date().toISOString(),
       end: eventData.end_date?.date || new Date().toISOString(),
       avatar: eventData.latest_users?.[0]?.avatar || 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/81/shrug_1f937.png',
@@ -408,7 +422,9 @@ export const getStaticProps = async ({ params }) => {
       amaForm: false,
       amaId: '',
       amaAvatar: eventData.latest_users?.[0]?.avatar || '',
-      approved: true
+      approved: true,
+      photo: eventData.highlight_photo || null,
+      isCanceled: eventData.is_canceled || false
     })) || []
 
     event = find(pastEvents, { slug })

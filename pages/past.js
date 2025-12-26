@@ -46,12 +46,18 @@ export const getStaticProps = async () => {
       title: event.name || 'Untitled Event',
       // Remove desc field to reduce payload - details can be fetched on individual event pages
       leader: event.latest_users?.[0]?.name || 'Happy Hacking Space',
+      leaderUsername: event.latest_users?.[0]?.username || '',
       start: event.start_date?.date || new Date().toISOString(),
       end: event.end_date?.date || new Date().toISOString(),
       avatar: event.latest_users?.[0]?.avatar || 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/81/shrug_1f937.png',
-      location: event.venue?.name || 'Online'
+      location: event.venue?.name || 'Online',
+      isCanceled: event.is_canceled || false,
+      photo: event.highlight_photo || null
     })) || []
-    
+
+    // Filter out cancelled events
+    events = events.filter(e => !e.isCanceled)
+
     // Sort from newest to oldest
     events = orderBy(events, 'start', 'desc')
     
