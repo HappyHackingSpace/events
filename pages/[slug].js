@@ -49,19 +49,6 @@ const Page = ({ event }) => (
       }`}
     />
     <Box as="header" sx={{ bg: 'sheet' }}>
-      {event.photo && (
-        <Box
-          as="img"
-          src={event.photo}
-          alt={event.title}
-          sx={{
-            width: '100%',
-            height: ['200px', '300px'],
-            objectFit: 'cover',
-            display: 'block'
-          }}
-        />
-      )}
       <Container sx={{ textAlign: 'center', pt: [3, 4], pb: [3, 4] }}>
         <Heading as="h1" variant="title" sx={{ mb: 2 }}>
           {event.title}
@@ -86,6 +73,20 @@ const Page = ({ event }) => (
           <Text as="span">{event.leader}</Text>
         </Flex>
       </Container>
+      {event.photo && (
+        <Box
+          as="img"
+          src={event.photo}
+          alt={event.title}
+          sx={{
+            width: '100%',
+            maxWidth: '600px',
+            height: 'auto',
+            display: 'block',
+            mx: 'auto'
+          }}
+        />
+      )}
     </Box>
     <Container
       as="article"
@@ -128,9 +129,6 @@ const Page = ({ event }) => (
             {tt('{DD}').render(new Date(event.start))}
           </Box>
         </Box>
-        {event.amaAvatar && (
-          <Avatar size={128} sx={{ mt: 4 }} src={event.amaAvatar} />
-        )}
       </Box>
       <Box as="article">
         <Text variant="caption" sx={{ display: 'block' }}>
