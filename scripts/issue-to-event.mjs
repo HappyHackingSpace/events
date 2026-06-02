@@ -39,10 +39,13 @@ const parseIssueForm = body => {
 
 const firstUrl = s => {
   if (!s) return null
-  const md = s.match(/\]\((https?:\/\/[^)\s]+)\)/)
-  if (md) return md[1]
-  const bare = s.match(/https?:\/\/[^\s)]+/)
-  return bare ? bare[0] : null
+  // GitHub renders large pasted images as <img src="URL" …>; also handle
+  // markdown ![alt](URL); else any bare URL. Strip trailing quotes/brackets.
+  const img = s.match(/<img[^>]*?\ssrc=["']([^"']+)["']/i)
+  const md = !img && s.match(/\]\((https?:\/\/[^)\s]+)\)/)
+  const bare = !img && !md && s.match(/https?:\/\/[^\s)<>"']+/)
+  const url = (img && img[1]) || (md && md[1]) || (bare && bare[0]) || null
+  return url ? url.replace(/["'>)\]]+$/, '') : null
 }
 
 const normalizeDateTime = raw => {

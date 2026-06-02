@@ -8,7 +8,7 @@ leaderUsername: "happyhackingspace"
 location: "Happy Hacking Space HQ - https://happyhacking.space/contact/"
 ama: false
 isCanceled: false
-photo: "https://github.com/user-attachments/assets/999c78cd-4b3e-4aa5-ad12-9934298297a2\""
+photo: "https://github.com/user-attachments/assets/999c78cd-4b3e-4aa5-ad12-9934298297a2"
 avatar: null
 youtube: null
 cal: null
