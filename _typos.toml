@@ -1,0 +1,7 @@
+# Event content is migrated / user-authored (Turkish text, venue & people names,
+# and hex slug fragments like "ba"/"caf"/"ded") — not something to spell-check.
+[files]
+extend-exclude = [
+  "content/",
+  "scripts/cached-images/",
+]

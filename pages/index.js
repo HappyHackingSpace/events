@@ -66,9 +66,10 @@ export default ({ months }) => (
 )
 
 export const getStaticProps = async () => {
+  // Same source as /api/events/upcoming-monthly — the API mirrors the UI.
   const months = await getUpcomingMonthly()
-  return { 
-    props: { months }, 
+  return {
+    props: { months },
     revalidate: process.env.NODE_ENV === 'development' ? false : 3600 // Development'ta cache yok, production'da 1 saat
   }
 }

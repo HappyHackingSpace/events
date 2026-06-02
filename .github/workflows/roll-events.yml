@@ -1,0 +1,38 @@
+name: Roll events
+
+# Daily housekeeping: move ended upcoming events into past/, and snapshot +
+# advance each recurring series. Keeps the upcoming/past folders accurate and
+# the recurring "next" date rolling forward.
+
+on:
+  schedule:
+    - cron: '17 3 * * *' # 03:17 UTC daily
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: event-publish
+  cancel-in-progress: false
+
+jobs:
+  roll:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Roll events + commit
+        run: |
+          node scripts/roll-events.mjs
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/events
+          if git diff --staged --quiet; then
+            echo "Nothing to roll today."
+          else
+            git commit -m "Roll events ($(date -u +%Y-%m-%d))"
+            git push
+          fi

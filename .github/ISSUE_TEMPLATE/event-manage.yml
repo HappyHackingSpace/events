@@ -1,0 +1,88 @@
+name: ✏️ Update / cancel event
+description: Change or cancel an event that's already published (one-off or recurring)
+title: "Manage event: "
+labels: ["event"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Update or cancel an already-published event. A maintainer reviews and adds
+        the **`approved`** label to apply the change. Org members only.
+  - type: input
+    id: existing-event
+    attributes:
+      label: Existing event (link or slug)
+      description: Paste the event page URL, or its slug (the part after the last "/").
+      placeholder: https://events.happyhackingspace.org/open-source-fridays/
+    validations:
+      required: true
+  - type: dropdown
+    id: action
+    attributes:
+      label: Action
+      options:
+        - "Update details"
+        - "Cancel (one-off) / End series (recurring)"
+      default: 0
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        For **Update**, fill in only the fields you want to change — blank fields
+        are left as-is. (For a recurring series, **Start** sets the next occurrence
+        and **Repeats** changes the cadence.) For **Cancel**, the fields below are ignored.
+  - type: input
+    id: title
+    attributes:
+      label: Event title
+    validations:
+      required: false
+  - type: dropdown
+    id: repeats
+    attributes:
+      label: Repeats
+      options:
+        - "No — one-time event"
+        - "Weekly"
+        - "Biweekly"
+        - "Every 3 weeks"
+        - "Monthly"
+        - "Yearly"
+      default: 0
+    validations:
+      required: false
+  - type: input
+    id: start
+    attributes:
+      label: Start
+      description: Europe/Istanbul, YYYY-MM-DD HH:MM
+    validations:
+      required: false
+  - type: input
+    id: end
+    attributes:
+      label: End
+      description: Europe/Istanbul, YYYY-MM-DD HH:MM
+    validations:
+      required: false
+  - type: input
+    id: location
+    attributes:
+      label: Location
+    validations:
+      required: false
+  - type: textarea
+    id: cover-image
+    attributes:
+      label: Cover image
+      description: Drag & drop a new poster to replace the current one.
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Replaces the current description if filled.
+    validations:
+      required: false

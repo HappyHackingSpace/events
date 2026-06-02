@@ -1,0 +1,18 @@
+---
+slug: "open-source-sundays-4f541982"
+title: "Open Source Sundays"
+start: "2025-12-14 20:00:00"
+end: "2025-12-14 21:00:00"
+leader: "Happy Hacking Space"
+leaderUsername: ""
+location: "Online"
+ama: false
+isCanceled: true
+photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/open-source-sundays-4f541982/81427/orange-and-purple-modern.png"
+avatar: null
+youtube: null
+cal: null
+recurringId: "788"
+---
+
+<p>Herkese Selamlar,</p><p> </p><p>Open source kulturunu yaymak ayni zamanda repolarimizda gelistirme yapmak adina OSS(Open Source Sunday) ile her hafta pazar repo inceliyoruz , gelistirmeler uzerine konusuyoruz , task atamasi yapiyoruz (seviyeye gore).</p><p> </p><p>Etkinlik linklerini Whatsapp duyuru kanallarindan paylasiyoruz.<br>Katilmak icin : https://join.happyhacking.space</p>

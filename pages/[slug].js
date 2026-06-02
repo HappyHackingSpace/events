@@ -1,6 +1,5 @@
 
 import {
-  Avatar,
   BaseStyles,
   Box,
   Button,
@@ -19,12 +18,11 @@ import Meta from '@happyhackingspace/meta'
 import tt from 'tinytime'
 import YouTubePlayer from 'react-player/youtube'
 import { useState, useEffect } from 'react'
-import GHSlugger from 'github-slugger'
 import DOMPurify from 'isomorphic-dompurify'
 
 import AMARsvp from '../components/ama-rsvp'
 import { getEvents } from '../lib/data'
-import { find, map } from 'lodash'
+import { find } from 'lodash'
 import { parse } from 'marked'
 
 const fullDate = event => tt('{MM} {DD}, {YYYY}').render(new Date(event.start))
@@ -39,18 +37,37 @@ const Page = ({ event }) => (
       description={`${event.ama ? 'An AMA hosted by' : 'An event by'} ${
         event.leader
       } on ${fullDate(event)} at Happy Hacking Space.`}
-      //this area will change
-      image={`https://workshop-cards.happyhacking.space/${encodeURIComponent(
+      image={event.photo || `https://workshop-cards.happyhacking.space/${encodeURIComponent(
         event.title
       )}.png?brand=Events&fontSize=225px&caption=${encodeURIComponent(
         `${event.leader} – ${fullDate(event)}`
-      )}${event.amaAvatar && `&images=${event.amaAvatar}&theme=dark`}&images=${
-        event.avatar
-      }`}
+      )}`}
     />
     <Box as="header" sx={{ bg: 'sheet' }}>
       <Container sx={{ textAlign: 'center', pt: [3, 4], pb: [3, 4] }}>
-        <Heading as="h1" variant="title" sx={{ mb: 2 }}>
+        {event.isCanceled && (
+          <Text
+            sx={{
+              display: 'inline-block',
+              bg: 'red',
+              color: 'white',
+              fontWeight: 'bold',
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              borderRadius: 'default',
+              px: 3,
+              py: 1,
+              mb: 3
+            }}
+          >
+            ✕ Cancelled
+          </Text>
+        )}
+        <Heading
+          as="h1"
+          variant="title"
+          sx={{ mb: 2, textDecoration: event.isCanceled ? 'line-through' : 'none' }}
+        >
           {event.title}
         </Heading>
         <Flex
@@ -61,16 +78,7 @@ const Page = ({ event }) => (
             fontSize: 2
           }}
         >
-          <Text as="span">
-            {event.ama ? 'An event hosted by' : 'An event by'}
-          </Text>
-          <Avatar
-            src={event.avatar}
-            alt={`${event.leader} profile picture`}
-            size={36}
-            sx={{ mx: 2, height: 36 }}
-          />
-          <Text as="span">{event.leader}</Text>
+          <Text as="span">Hosted by {event.leader}</Text>
         </Flex>
       </Container>
       {event.photo && (
@@ -80,10 +88,12 @@ const Page = ({ event }) => (
           alt={event.title}
           sx={{
             width: '100%',
-            maxWidth: '600px',
+            maxWidth: '720px',
             height: 'auto',
             display: 'block',
-            mx: 'auto'
+            mx: 'auto',
+            borderRadius: 'extra',
+            boxShadow: 'elevated'
           }}
         />
       )}
@@ -368,74 +378,23 @@ export default props => {
 }
 
 export const getStaticPaths = async () => {
-  // Hem normal hem past eventleri al
-  const [upcomingEvents, pastResponse] = await Promise.all([
-    getEvents(),
-    fetch('https://api.kommunity.com/api/v1/diyarbakir-happy-hacking-space/events/past')
-  ])
-
-  const pastData = await pastResponse.json()
-  const slugger = new GHSlugger()
-
-  const pastEvents = pastData.data?.map((event) => ({
-    slug: event.slug || slugger.slug(event.name || 'untitled')
-  })) || []
-
-  const allSlugs = [
-    ...map(upcomingEvents, 'slug'),
-    ...map(pastEvents, 'slug')
-  ]
-
-  const paths = allSlugs.map(slug => ({ params: { slug } }))
-  return { paths, fallback: true }
+  const events = await getEvents()
+  const paths = events.map(e => ({ params: { slug: e.slug } }))
+  return { paths, fallback: 'blocking' }
 }
 
 export const getStaticProps = async ({ params }) => {
-  const { slug } = params
-  
-  // Önce upcoming events'te ara
-  const upcomingEvents = await getEvents()
-  let event = find(upcomingEvents, { slug })
-  
-  // Bulunamazsa past events'te ara
-  if (!event) {
-    const pastResponse = await fetch('https://api.kommunity.com/api/v1/diyarbakir-happy-hacking-space/events/past')
-    const pastData = await pastResponse.json()
-    const slugger = new GHSlugger()
+  const events = await getEvents()
+  const event = find(events, { slug: params.slug })
 
-    const pastEvents = pastData.data?.map((eventData) => ({
-      id: eventData.id,
-      slug: eventData.slug || slugger.slug(eventData.name || 'untitled'),
-      title: eventData.name || 'Untitled Event',
-      desc: eventData.detail || '',
-      leader: eventData.latest_users?.[0]?.name || 'Happy Hacking Space',
-      leaderUsername: eventData.latest_users?.[0]?.username || '',
-      start: eventData.start_date?.date || new Date().toISOString(),
-      end: eventData.end_date?.date || new Date().toISOString(),
-      avatar: eventData.latest_users?.[0]?.avatar || 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/81/shrug_1f937.png',
-      location: eventData.venue?.name || 'Online',
-      cal: null,
-      youtube: null,
-      ama: false,
-      amaForm: false,
-      amaId: '',
-      amaAvatar: eventData.latest_users?.[0]?.avatar || '',
-      approved: true,
-      photo: eventData.highlight_photo || null,
-      isCanceled: eventData.is_canceled || false
-    })) || []
-
-    event = find(pastEvents, { slug })
-  }
-  
   if (!event) {
     return { notFound: true }
   }
-  
+
   event.html = await parse(event.desc)
   event.desc ??= null
-  return { 
-    props: { event }, 
+  return {
+    props: { event },
     revalidate: process.env.NODE_ENV === 'development' ? false : 3600
   }
 }

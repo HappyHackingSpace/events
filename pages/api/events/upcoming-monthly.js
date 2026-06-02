@@ -1,17 +1,10 @@
-import { getEvents } from '../../../lib/data'
+import { getUpcoming } from '../../../lib/data'
 
-import { filter, groupBy } from 'lodash'
+import { groupBy } from 'lodash'
 
 export const getUpcomingMonthly = async () => {
-  let events = await getEvents()
-  events = filter(
-    events,
-    e => {
-      if (!e.end || typeof e.end !== 'string') return false
-      if (e.isCanceled) return false
-      return new Date(e.end) >= new Date()
-    }
-  )
+  // One-off future events + the next occurrence of each recurring series.
+  const events = await getUpcoming()
   return groupBy(events, e => {
     if (!e.start || typeof e.start !== 'string') return 'unknown'
     try {

@@ -1,0 +1,110 @@
+name: Event from issue
+
+# Turn an "event" issue into content/events/<slug>.md once a maintainer approves.
+#
+# Roles:
+#   - Org/team members (author_association OWNER/MEMBER/COLLABORATOR) may submit.
+#     Submissions from anyone else are closed automatically.
+#   - Admins/maintainers publish by adding the `approved` label (only users with
+#     write/triage access can apply labels), which commits the event to main.
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: event-publish
+  cancel-in-progress: false
+
+jobs:
+  process:
+    # Only react to event submissions.
+    if: contains(github.event.issue.labels.*.name, 'event')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Evaluate gate
+        id: gate
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue
+            const action = context.payload.action
+            const assoc = issue.author_association
+            const isMember = ['OWNER', 'MEMBER', 'COLLABORATOR'].includes(assoc)
+            const labels = issue.labels.map(l => l.name)
+            const isApproved = labels.includes('approved')
+
+            core.setOutput('publish', String(isMember && isApproved))
+
+            if (!isMember) {
+              if (action === 'opened' || action === 'labeled') {
+                await github.rest.issues.createComment({
+                  ...context.repo, issue_number: issue.number,
+                  body: '⛔ Only Happy Hacking Space org members can submit events, so this issue is being closed. If you are a member, ask a maintainer to add you to the org.'
+                })
+                await github.rest.issues.update({
+                  ...context.repo, issue_number: issue.number, state: 'closed', state_reason: 'not_planned'
+                })
+              }
+              return
+            }
+
+            if (!isApproved && action === 'opened') {
+              await github.rest.issues.createComment({
+                ...context.repo, issue_number: issue.number,
+                body: '✅ Thanks! A maintainer will review this and add the `approved` label to publish it.'
+              })
+            }
+
+      - name: Checkout
+        if: steps.gate.outputs.publish == 'true'
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        if: steps.gate.outputs.publish == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate event file + commit
+        id: commit
+        if: steps.gate.outputs.publish == 'true'
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          node scripts/issue-to-event.mjs
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A content/events
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Event #${ISSUE_NUMBER}: ${ISSUE_TITLE}"
+            git push
+          fi
+
+      - name: Comment + close
+        if: steps.gate.outputs.publish == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const summary = '${{ steps.commit.outputs.summary }}' || 'Applied'
+            const path = '${{ steps.commit.outputs.path }}'
+            await github.rest.issues.createComment({
+              ...context.repo, issue_number: context.payload.issue.number,
+              body: `🚀 ${summary} — \`${path}\`. Live after the next Vercel build.`
+            })
+            try {
+              await github.rest.issues.addLabels({
+                ...context.repo, issue_number: context.payload.issue.number, labels: ['published']
+              })
+            } catch (e) { core.info('Could not add published label: ' + e.message) }
+            await github.rest.issues.update({
+              ...context.repo, issue_number: context.payload.issue.number, state: 'closed', state_reason: 'completed'
+            })

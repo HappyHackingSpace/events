@@ -1,0 +1,108 @@
+name: 📅 New event
+description: Submit an event to publish on events.happyhackingspace.org
+title: "Event: "
+labels: ["event"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill this in to add an event to the site. A maintainer reviews it and adds
+        the **`approved`** label to publish — only then is the event committed.
+
+        Only Happy Hacking Space org members can submit events; other submissions
+        are closed automatically.
+  - type: input
+    id: title
+    attributes:
+      label: Event title
+      placeholder: Open Source Fridays
+    validations:
+      required: true
+  - type: dropdown
+    id: repeats
+    attributes:
+      label: Repeats
+      description: One-time event, or a recurring series? For a series, Start is the first occurrence; it then rolls forward automatically.
+      options:
+        - "No — one-time event"
+        - "Weekly"
+        - "Biweekly"
+        - "Every 3 weeks"
+        - "Monthly"
+        - "Yearly"
+      default: 0
+    validations:
+      required: false
+  - type: input
+    id: start
+    attributes:
+      label: Start
+      description: "Local time (Europe/Istanbul), format YYYY-MM-DD HH:MM. For a recurring series this is the first occurrence."
+      placeholder: 2026-06-05 21:00
+    validations:
+      required: true
+  - type: input
+    id: end
+    attributes:
+      label: End
+      description: "Local time (Europe/Istanbul), format YYYY-MM-DD HH:MM. Defaults to Start if left blank."
+      placeholder: 2026-06-05 23:00
+    validations:
+      required: false
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: Venue name, or leave as Online.
+      value: Online
+    validations:
+      required: false
+  - type: input
+    id: organizer-name
+    attributes:
+      label: Organizer name
+      placeholder: Happy Hacking Space
+    validations:
+      required: false
+  - type: input
+    id: organizer-username
+    attributes:
+      label: Organizer GitHub username
+      placeholder: octocat
+    validations:
+      required: false
+  - type: textarea
+    id: cover-image
+    attributes:
+      label: Cover image
+      description: |
+        Drag & drop the event poster here. GitHub uploads it and inserts a
+        `https://github.com/user-attachments/...` link — that link is used as-is.
+      placeholder: Drop an image here…
+    validations:
+      required: false
+  - type: dropdown
+    id: ama
+    attributes:
+      label: Is this an AMA?
+      options:
+        - "No"
+        - "Yes"
+      default: 0
+    validations:
+      required: false
+  - type: input
+    id: youtube
+    attributes:
+      label: YouTube URL
+      description: Optional — recording/stream link, shown on past AMA pages.
+      placeholder: https://youtube.com/watch?v=…
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Markdown supported. This becomes the event detail page body.
+    validations:
+      required: true
