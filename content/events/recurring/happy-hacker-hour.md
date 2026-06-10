@@ -5,7 +5,7 @@ location: "Online"
 ama: false
 photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/happy-hacker-hour-f2d4e658/85891/hhh-x-bluesky-mastodon-yo.png"
 cadence: "Monthly"
-next: "2026-06-12 19:00:00"
+next: "2026-06-19 19:00:00"
 durationMinutes: 120
 ---
 
