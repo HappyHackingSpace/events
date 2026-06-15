@@ -165,7 +165,7 @@ const GoogleCalendarSubscribe = () => {
                         wordBreak: 'break-all'
                       }}
                     >
-                      https://happyhacking.space/api/events.ics
+                      https://events.happyhacking.space/api/events.ics
                     </Box>
                   </Box>
                   <Box as="li">
