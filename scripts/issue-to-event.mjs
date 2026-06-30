@@ -74,6 +74,24 @@ const normalizeUntil = raw => {
   return m ? `${m[1]}-${m[2]}-${m[3]}` : null
 }
 
+// "Organizer link" -> full profile URL on any platform (X, Instagram, LinkedIn,
+// Mastodon, Bluesky, GitHub, personal site), or ''. A bare handle is treated as
+// GitHub for back-compat with the old "Organizer GitHub username" field.
+const normalizeLink = raw => {
+  const t = String(raw || '').trim().split(/\s+/)[0]
+  if (!t) return ''
+  if (/^https?:\/\//i.test(t)) return t
+  if (/^[a-z0-9.-]+\.[a-z]{2,}(\/|$)/i.test(t)) return `https://${t}`
+  return `https://github.com/${t.replace(/^@/, '')}`
+}
+
+// Pull the GitHub username out of a github.com URL (for the legacy
+// leaderUsername field), or '' if the link isn't GitHub.
+const githubUserFromUrl = url => {
+  const m = /^https?:\/\/(?:www\.)?github\.com\/([^/?#]+)/i.exec(url || '')
+  return m ? m[1] : ''
+}
+
 const durationMin = (start, end) => {
   const a = new Date(String(start).replace(' ', 'T'))
   const b = new Date(String(end).replace(' ', 'T'))
@@ -134,6 +152,7 @@ const create = async f => {
   const photo = firstUrl(f['cover image'])
   const cadence = cadenceOf(f['repeats'])
   const until = normalizeUntil(f['repeat until'])
+  const leaderUrl = normalizeLink(f['organizer link'])
 
   if (cadence) {
     await mkdir(RECURRING_DIR, { recursive: true })
@@ -144,7 +163,8 @@ const create = async f => {
     const def = {
       slug, title,
       leader: (f['organizer name'] || 'Happy Hacking Space').trim(),
-      leaderUsername: (f['organizer github username'] || '').replace(/^@/, '').trim(),
+      leaderUsername: githubUserFromUrl(leaderUrl),
+      leaderUrl,
       location, ama, photo, cadence, next: start, durationMinutes: durationMin(start, end),
     }
     if (until) def.until = until
@@ -160,7 +180,8 @@ const create = async f => {
   const fields = {
     slug, title, start, end,
     leader: (f['organizer name'] || 'Happy Hacking Space').trim(),
-    leaderUsername: (f['organizer github username'] || '').replace(/^@/, '').trim(),
+    leaderUsername: githubUserFromUrl(leaderUrl),
+    leaderUrl,
     location, ama, isCanceled: false, photo, avatar: null,
     youtube: firstUrl(f['youtube url']), cal: null, recurringId: null
   }
@@ -194,11 +215,16 @@ const manage = async (f, slug) => {
   const newPhoto = firstUrl(f['cover image'])
   const newCadence = cadenceOf(f['repeats'])
   const newUntil = normalizeUntil(f['repeat until'])
+  const newLink = normalizeLink(f['organizer link'])
   const newBody = (f['description'] || '').trim()
 
   if (newTitle) data.title = newTitle
   if (newLocation) data.location = newLocation
   if (newPhoto) data.photo = newPhoto
+  if (newLink) {
+    data.leaderUrl = newLink
+    data.leaderUsername = githubUserFromUrl(newLink)
+  }
 
   if (target.kind === 'recurring') {
     if (newStart) data.next = newStart

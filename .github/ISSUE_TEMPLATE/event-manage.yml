@@ -79,6 +79,13 @@ body:
       label: Location
     validations:
       required: false
+  - type: input
+    id: organizer-link
+    attributes:
+      label: Organizer link
+      description: "Optional. Organizer profile URL on any platform (X, Instagram, LinkedIn, Mastodon, Bluesky, GitHub) or a website. A bare handle is treated as GitHub."
+    validations:
+      required: false
   - type: textarea
     id: cover-image
     attributes:

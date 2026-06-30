@@ -78,7 +78,16 @@ const Page = ({ event }) => (
             fontSize: 2
           }}
         >
-          <Text as="span">Hosted by {event.leader}</Text>
+          <Text as="span">
+            Hosted by{' '}
+            {event.leaderUrl ? (
+              <Link href={event.leaderUrl} target="_blank" rel="noopener noreferrer">
+                {event.leader}
+              </Link>
+            ) : (
+              event.leader
+            )}
+          </Text>
         </Flex>
       </Container>
       {event.photo && (

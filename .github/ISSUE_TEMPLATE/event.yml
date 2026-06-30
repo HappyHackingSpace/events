@@ -73,10 +73,11 @@ body:
     validations:
       required: false
   - type: input
-    id: organizer-username
+    id: organizer-link
     attributes:
-      label: Organizer GitHub username
-      placeholder: octocat
+      label: Organizer link
+      description: "Optional. The organizer's profile on any platform (X, Instagram, LinkedIn, Mastodon, Bluesky, GitHub) or a website. Paste the full URL. A bare handle is treated as GitHub."
+      placeholder: https://instagram.com/happyhackingspace
     validations:
       required: false
   - type: textarea
