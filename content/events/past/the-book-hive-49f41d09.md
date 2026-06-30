@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Happy Hacking Space"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/the-book-hive-49f41d09/81226/happy-hacking-space.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/023-1eccdf54ee9a9dc0.jpg"
 avatar: null
 youtube: null
 cal: null

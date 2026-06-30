@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Nafiye-Ömer Şevki Cizrelioğlu Lisesi"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/volleyball-event-085933e2/71900/black-and-yellow-modern-v.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/075-10a652e08c2e9ba9.png"
 avatar: null
 youtube: null
 cal: null

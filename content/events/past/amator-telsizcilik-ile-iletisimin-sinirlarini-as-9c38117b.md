@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Online"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/amator-telsizcilik-ile-iletisimin-sinirlarini-as-9c38117b/80935/sssssssssss.jpeg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/026-9b342a8409d54bad.jpeg"
 avatar: null
 youtube: null
 cal: null

@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Online"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/network-http-ve-api-egitim-serisi-5cdcc367/77672/mahsumakbasnetworking.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/041-34d70b683ece598c.jpg"
 avatar: null
 youtube: null
 cal: null

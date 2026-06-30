@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Soulmate coffee"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/plansiz-bulusma-1-864febca/51450/kahve-muhabbet-diyarbak.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/110-3544802023f7d942.png"
 avatar: null
 youtube: null
 cal: null

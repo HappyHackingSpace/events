@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Diyarbakır Ticaret ve Sanayi Odası"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/fiziksel-alan-icin-ilk-adim-6b5fa4a1/67087/diyarbakir-yazilimci-bulu.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/100-3c8e14b1ce43d30c.png"
 avatar: null
 youtube: null
 cal: null

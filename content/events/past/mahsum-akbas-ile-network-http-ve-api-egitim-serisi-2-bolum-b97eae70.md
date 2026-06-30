@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Online"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/mahsum-akbas-ile-network-http-ve-api-egitim-serisi-2-bolum-b97eae70/78144/white-red-simple-freelanc.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/040-a61611817e11c7b1.jpg"
 avatar: null
 youtube: null
 cal: null

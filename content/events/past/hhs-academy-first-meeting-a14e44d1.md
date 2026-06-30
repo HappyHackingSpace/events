@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Diyarbakır Ticaret ve Sanayi Odası"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/hhs-academy-first-meeting-a14e44d1/74335/hhs-academy-first-meeting.jpeg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/058-d3c9db8688b77920.jpeg"
 avatar: null
 youtube: null
 cal: null

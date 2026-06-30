@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Valinor Coffee"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/happy-hacking-hour-6-9e833d90/68466/everythings-better-when.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/095-e2925286e388cadd.png"
 avatar: null
 youtube: null
 cal: null

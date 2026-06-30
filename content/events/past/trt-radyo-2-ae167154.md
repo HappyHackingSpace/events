@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "TRT Diyarbakır Bölge Müdürlüğü"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/trt-radyo-2-ae167154/76451/trt-radyo-2.jpeg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/048-d67b5c1f37f7f8fe.jpeg"
 avatar: null
 youtube: null
 cal: null

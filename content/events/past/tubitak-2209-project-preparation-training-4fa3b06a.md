@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Online"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/tubitak-2209-project-preparation-training-4fa3b06a/72501/2.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/071-52fd063239b981b6.png"
 avatar: null
 youtube: null
 cal: null

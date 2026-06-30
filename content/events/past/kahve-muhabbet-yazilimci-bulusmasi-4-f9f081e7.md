@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "La Minita Coffee Roastery"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/kahve-muhabbet-yazilimci-bulusmasi-4-f9f081e7/52208/kahve-muhabbet-diyarbak.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/109-cb17d838766b9aeb.png"
 avatar: null
 youtube: null
 cal: null

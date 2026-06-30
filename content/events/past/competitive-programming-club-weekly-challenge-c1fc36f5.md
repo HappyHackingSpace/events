@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Online"
 ama: false
 isCanceled: true
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/competitive-programming-club-weekly-challenge-c1fc36f5/74043/competitive-programming-c.jpeg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/046-aefe9a71e381198c.jpeg"
 avatar: null
 youtube: null
 cal: null

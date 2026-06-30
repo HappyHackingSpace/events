@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Heffalump Coffee Diyarbakır"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/english-speaking-club-weekly-meeting-7709e8c3/70578/white-purple-simple-class.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/081-f1d04629237d08f3.png"
 avatar: null
 youtube: null
 cal: null

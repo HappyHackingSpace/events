@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Coffy Diyarbakır 75. Cadde"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/kahve-muhabbet-yazilimci-bulusmasi-7-a5638d1c/65029/diyarbakir-developer-meet.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/102-c945eaa503705e46.png"
 avatar: null
 youtube: null
 cal: null

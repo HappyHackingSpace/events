@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "DİCLE ÜNİVERSİTESİ 15 TEMMUZ KÜLTÜR VE KONGRE MERKEZİ"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/conf-happy-hacking-space-dicle-siber-guvenlik-konferansi-03d66dac/82463/hhs-dicle-cybersec-conf.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/013-6e6ddef88eeaad0d.jpg"
 avatar: null
 youtube: null
 cal: null

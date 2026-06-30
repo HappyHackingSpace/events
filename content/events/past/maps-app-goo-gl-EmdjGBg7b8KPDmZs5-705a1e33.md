@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Diyarbakır Ticaret ve Sanayi Odası"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/maps-app-goo-gl-EmdjGBg7b8KPDmZs5-705a1e33/72735/bir-alt-baslik-ekleyin.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/069-ac9dc07cd9ff5338.png"
 avatar: null
 youtube: null
 cal: null

@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Online"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/yazilim-test-kariyeri-kariyer-sunumu-soru-cevap-etkinligi-58f9713b/75055/black-and-white-minimalis.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/053-d213f20b89cb7746.jpg"
 avatar: null
 youtube: null
 cal: null

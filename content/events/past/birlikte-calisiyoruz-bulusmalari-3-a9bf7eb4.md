@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Nevada Coffee"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/birlikte-calisiyoruz-bulusmalari-3-a9bf7eb4/62508/youtube-thumbnail-design.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/104-b89e54876a957138.png"
 avatar: null
 youtube: null
 cal: null

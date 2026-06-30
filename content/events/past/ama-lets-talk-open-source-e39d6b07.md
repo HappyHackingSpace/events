@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Online"
 ama: true
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/ama-lets-talk-open-source-e39d6b07/74117/1745245233697.jpeg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/063-f1a223621d2c6f55.jpeg"
 avatar: null
 youtube: null
 cal: null

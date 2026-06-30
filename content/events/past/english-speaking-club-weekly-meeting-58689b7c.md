@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Online"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/english-speaking-club-weekly-meeting-58689b7c/69515/white-purple-simple-class.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/091-6beaf21af541fb97.png"
 avatar: null
 youtube: null
 cal: null

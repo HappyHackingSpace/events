@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Happy Hacking Space HQ"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/ai-for-everyone-5e82ba53/83556/ai-call.jpeg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/007-4d127374f9216d06.jpeg"
 avatar: null
 youtube: null
 cal: null

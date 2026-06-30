@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Valinor Coffee"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/birlikte-calisiyoruz-bulusmalari-1-0a54133d/54839/kahve-muhabbet-diyarbak.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/107-83425658d7f4f6e3.png"
 avatar: null
 youtube: null
 cal: null

@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Online"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/happy-hacker-hour-092011a2/85890/hhh-x-bluesky-mastodon-yo.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/002-2d0709ea5e45148d.png"
 avatar: null
 youtube: null
 cal: null

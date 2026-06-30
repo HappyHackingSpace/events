@@ -3,7 +3,7 @@ slug: "happy-hacker-hour"
 title: "Happy Hacker Hour"
 location: "Online"
 ama: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/happy-hacker-hour-f2d4e658/85891/hhh-x-bluesky-mastodon-yo.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/002-2d0709ea5e45148d.png"
 cadence: "Monthly"
 next: "2026-07-19 19:00:00"
 durationMinutes: "120"

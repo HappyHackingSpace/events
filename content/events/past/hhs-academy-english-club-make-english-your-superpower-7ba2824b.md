@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Online"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/hhs-academy-english-club-make-english-your-superpower-7ba2824b/80683/hero-block-desktop-design.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/012-b542572d98d2348d.jpg"
 avatar: null
 youtube: null
 cal: null

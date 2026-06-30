@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Fırat Üniversitesi"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/happy-hacking-space-at-firat-university-6e44b429/68263/happy-hacking-space-x-ins.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/096-77345fe8c90f442b.png"
 avatar: null
 youtube: null
 cal: null

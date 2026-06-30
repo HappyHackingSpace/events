@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Happy Hacking Space"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/git-like-a-pirate-git-github-workshop-0375991e/81845/gemini-generated-image-j5.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/019-124a0838ee1d4094.jpg"
 avatar: null
 youtube: null
 cal: null

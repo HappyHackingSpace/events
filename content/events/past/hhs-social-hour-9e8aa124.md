@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Online"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/hhs-social-hour-9e8aa124/80558/social-hour-4-1.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/027-54d3a11985d696a8.jpg"
 avatar: null
 youtube: null
 cal: null

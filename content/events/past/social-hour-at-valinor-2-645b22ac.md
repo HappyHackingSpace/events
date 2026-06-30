@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Valinor Coffee"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/social-hour-at-valinor-2-645b22ac/68748/nevada-coffee-oct-19-2024.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/094-a218c2ed39cbc3c8.png"
 avatar: null
 youtube: null
 cal: null

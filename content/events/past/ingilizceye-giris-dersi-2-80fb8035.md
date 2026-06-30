@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Diyarbakır Ticaret ve Sanayi Odası"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/ingilizceye-giris-dersi-2-80fb8035/74252/english-classs.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/057-10336d3df2a6e81e.jpg"
 avatar: null
 youtube: null
 cal: null

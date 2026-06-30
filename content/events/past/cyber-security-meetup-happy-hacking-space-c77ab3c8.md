@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Online"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/cyber-security-meetup-happy-hacking-space-c77ab3c8/71789/whatsapp-image-2025-02-11.jpeg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/074-4bb407e586e7af3e.jpeg"
 avatar: null
 youtube: null
 cal: null

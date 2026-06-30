@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Happy Hacking Space"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/happy-hacking-space-cleaning-time-08321a53/79781/siyah-nostaljik-oyun-pacm.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/016-438245497d8b4d0e.jpg"
 avatar: null
 youtube: null
 cal: null

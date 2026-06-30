@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Diyarbakır Ticaret ve Sanayi Odası"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/happy-hacking-space-competitions-code-jam-181925-f02a63d8/70301/hhs-competitions-code-jam.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/078-44e35602ae1491e7.png"
 avatar: null
 youtube: null
 cal: null

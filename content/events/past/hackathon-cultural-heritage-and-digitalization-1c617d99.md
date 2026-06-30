@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Diyarbakir Chamber of Commerce and Industry"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/hackathon-cultural-heritage-and-digitalization-1c617d99/68431/image-11-9-24-at-2111.jpeg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/092-0612e6f241078cbb.jpeg"
 avatar: null
 youtube: null
 cal: null

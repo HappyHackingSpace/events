@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Valinor Coffee"
 ama: true
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/ama-many-minds-0dd2c6e0/67923/1.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/098-cc3ebf95c0a25266.png"
 avatar: null
 youtube: null
 cal: null

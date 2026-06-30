@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Nevada Coffee"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/social-hour-at-nevada-1-6acb38f5/67732/bulusma-1.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/099-ce7f9f417ac0f675.png"
 avatar: null
 youtube: null
 cal: null

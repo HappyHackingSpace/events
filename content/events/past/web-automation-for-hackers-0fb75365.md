@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Online"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/web-automation-for-hackers-0fb75365/83288/hhs-poster.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/009-8e268d5555245016.png"
 avatar: null
 youtube: null
 cal: null

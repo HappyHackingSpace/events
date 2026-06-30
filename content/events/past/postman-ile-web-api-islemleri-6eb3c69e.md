@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Online"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/postman-ile-web-api-islemleri-6eb3c69e/80747/mahsum-akbas-poster.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/028-be2c8558c11a1596.jpg"
 avatar: null
 youtube: null
 cal: null

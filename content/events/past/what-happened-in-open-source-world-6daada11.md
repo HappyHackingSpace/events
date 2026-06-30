@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Diyarbakır Ticaret ve Sanayi Odası"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/what-happened-in-open-source-world-6daada11/74383/whatsapp-image-2025-05-05.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/056-908245514d478f78.jpg"
 avatar: null
 youtube: null
 cal: null

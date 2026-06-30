@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Happy Hacking Space"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/hhs-garage-resumex-75151d90/81039/post.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/025-c7a0bcd4c278e4ea.png"
 avatar: null
 youtube: null
 cal: null

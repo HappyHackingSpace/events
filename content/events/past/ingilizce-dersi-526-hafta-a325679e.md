@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Diyarbakır Ticaret ve Sanayi Odası"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/ingilizce-dersi-526-hafta-a325679e/75346/english-classs.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/051-8613b0248e1d64b9.jpg"
 avatar: null
 youtube: null
 cal: null

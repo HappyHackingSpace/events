@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Diyarbakır Ticaret ve Sanayi Odası"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/founder-club-girisimcilik-ustune-sohbetler-1-mayis-2025-2dce1407/74333/1745589478137.jpeg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/059-d4b0cf326922b85c.jpeg"
 avatar: null
 youtube: null
 cal: null

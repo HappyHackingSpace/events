@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Happy Hacking Space"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/container-pop-a-practical-intro-to-docker-b9c11bd7/81846/gemini-generated-image-zc.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/018-d49226e7b66ddf7a.jpg"
 avatar: null
 youtube: null
 cal: null

@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Valinor Coffee"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/bookhive-kickoff-meetup-952fb658/72166/read-a-book-motivational.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/073-945786a02cc82fa8.png"
 avatar: null
 youtube: null
 cal: null

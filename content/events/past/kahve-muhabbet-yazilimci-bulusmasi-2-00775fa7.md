@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Cup of Coffee"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/kahve-muhabbet-yazilimci-bulusmasi-2-00775fa7/50614/kahve-muhabbet-diyarbak.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/111-0c2df73f408f25fc.png"
 avatar: null
 youtube: null
 cal: null

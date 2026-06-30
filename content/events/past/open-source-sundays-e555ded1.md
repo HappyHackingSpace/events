@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Online"
 ama: false
 isCanceled: true
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/open-source-sundays-e555ded1/81188/orange-and-purple-modern.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/014-6d47fbec27badbc3.png"
 avatar: null
 youtube: null
 cal: null

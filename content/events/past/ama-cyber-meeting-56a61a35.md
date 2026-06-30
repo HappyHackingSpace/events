@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Online"
 ama: true
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/ama-cyber-meeting-56a61a35/69513/red-and-beige-modern-week.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/086-93d7d420f2ac4b39.png"
 avatar: null
 youtube: null
 cal: null

@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Diyarbakır Ticaret ve Sanayi Odası"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/social-hour-5-community-ideas-and-coffee-a4a5aae0/73499/2.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/066-46d138e3defbab83.jpg"
 avatar: null
 youtube: null
 cal: null

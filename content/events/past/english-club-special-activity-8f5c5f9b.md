@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Heffalump Coffee Diyarbakır"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/english-club-special-activity-8f5c5f9b/71896/whatsapp-gorsel-2025-02-1.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/065-cdc85ceef9247c5e.jpg"
 avatar: null
 youtube: null
 cal: null

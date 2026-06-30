@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Happy Hacking Space"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/hama-beads-pixel-art-workshop-e8a9f11c/82327/aaaaaaa.jpeg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/020-af1201425e025812.jpeg"
 avatar: null
 youtube: null
 cal: null

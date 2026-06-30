@@ -3,7 +3,7 @@ slug: "open-source-fridays"
 title: "Open Source Fridays"
 location: "Online"
 ama: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/open-source-fridays-fddf8e59/85903/osf-x-bluesky-mastodon-yo.png"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/001-6b63753135878679.png"
 cadence: "Weekly"
 next: "2026-07-03 21:00:00"
 durationMinutes: "120"

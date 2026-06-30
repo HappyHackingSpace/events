@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Diyarbakır Ticaret ve Sanayi Odası"
 ama: true
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/ama-safa-orhan-1f8f91fb/75239/whatsapp-image-2025-05-27.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/052-bb6af178a0bea6cf.jpg"
 avatar: null
 youtube: null
 cal: null

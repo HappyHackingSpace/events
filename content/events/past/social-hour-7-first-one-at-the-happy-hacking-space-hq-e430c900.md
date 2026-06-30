@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Happy Hacking Space"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/social-hour-7-first-one-at-the-happy-hacking-space-hq-e430c900/79967/social-hour-4-1.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/033-f2c3eee183775ed1.jpg"
 avatar: null
 youtube: null
 cal: null

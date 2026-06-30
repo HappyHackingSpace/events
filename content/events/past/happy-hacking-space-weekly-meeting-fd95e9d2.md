@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Happy Hacking Space HQ (Diyarbakir)"
 ama: false
 isCanceled: false
-photo: "https://github.com/user-attachments/assets/ef2eee4f-02d1-42b5-a135-b1d0730270c0"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/036-86df5ce96a0ee815.jpg"
 avatar: null
 youtube: null
 cal: null

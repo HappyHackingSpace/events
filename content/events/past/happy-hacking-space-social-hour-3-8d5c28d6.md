@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Heffalump Coffee Diyarbakır"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/happy-hacking-space-social-hour-3-8d5c28d6/69478/whatsapp-image-2024-12-12.jpeg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/089-0ce05fd1a7d698f2.jpeg"
 avatar: null
 youtube: null
 cal: null

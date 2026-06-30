@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Diyarbakır Ticaret ve Sanayi Odası"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/kurdish-rd-roadmap-9af27b91/69752/kurdish-rd-roadmap.jpeg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/087-00fb204c4411e38e.jpeg"
 avatar: null
 youtube: null
 cal: null

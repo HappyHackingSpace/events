@@ -8,7 +8,7 @@ leaderUsername: ""
 location: "Happy Hacking Space"
 ama: false
 isCanceled: false
-photo: "https://media.kommunity.com/communities/diyarbakir-happy-hacking-space/events/deploy-roll-vercel-and-the-art-of-smooth-shipping-8caae955/81848/qqq.jpg"
+photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/017-db65b32ba8fe7063.jpg"
 avatar: null
 youtube: null
 cal: null
