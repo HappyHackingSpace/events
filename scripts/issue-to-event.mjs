@@ -141,7 +141,12 @@ const create = async f => {
     let slug = slugify(title)
     let n = 2
     while (existing.has(slug)) slug = `${slugify(title)}-${n++}`
-    const def = { slug, title, location, ama, photo, cadence, next: start, durationMinutes: durationMin(start, end) }
+    const def = {
+      slug, title,
+      leader: (f['organizer name'] || 'Happy Hacking Space').trim(),
+      leaderUsername: (f['organizer github username'] || '').replace(/^@/, '').trim(),
+      location, ama, photo, cadence, next: start, durationMinutes: durationMin(start, end),
+    }
     if (until) def.until = until
     await writeFile(join(RECURRING_DIR, `${slug}.md`), serializeEvent(def, body))
     return emit(slug, `content/events/recurring/${slug}.md`, `Created recurring series (${cadence})`)
