@@ -1,6 +1,9 @@
 ---
 slug: "open-source-fridays"
 title: "Open Source Fridays"
+leader: "Arjin Albay"
+leaderUsername: "ArjinAlbay"
+leaderUrl: "https://github.com/ArjinAlbay"
 location: "Online"
 ama: false
 photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/001-6b63753135878679.png"

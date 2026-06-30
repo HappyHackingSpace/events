@@ -3,8 +3,9 @@ slug: "open-source-fridays-56e4e497"
 title: "Open Source Fridays"
 start: "2026-04-03 21:00:00"
 end: "2026-04-03 23:00:00"
-leader: "Happy Hacking Space"
-leaderUsername: ""
+leader: "Arjin Albay"
+leaderUsername: "ArjinAlbay"
+leaderUrl: "https://github.com/ArjinAlbay"
 location: "Online"
 ama: false
 isCanceled: false
