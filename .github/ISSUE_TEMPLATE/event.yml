@@ -50,6 +50,14 @@ body:
     validations:
       required: false
   - type: input
+    id: repeat-until
+    attributes:
+      label: Repeat until
+      description: "Recurring series only. The last date the series can occur (Europe/Istanbul), format YYYY-MM-DD. After this date the series ends automatically. Leave blank for an open-ended series."
+      placeholder: 2026-08-30
+    validations:
+      required: false
+  - type: input
     id: location
     attributes:
       label: Location

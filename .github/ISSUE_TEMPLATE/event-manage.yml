@@ -67,6 +67,13 @@ body:
     validations:
       required: false
   - type: input
+    id: repeat-until
+    attributes:
+      label: Repeat until
+      description: "Recurring series only. Last date the series can occur (Europe/Istanbul), YYYY-MM-DD. The series ends automatically after this date."
+    validations:
+      required: false
+  - type: input
     id: location
     attributes:
       label: Location

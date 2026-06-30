@@ -68,6 +68,12 @@ const cadenceOf = raw => {
   return null
 }
 
+// "Repeat until" -> YYYY-MM-DD (date only) or null. Tolerates a full datetime.
+const normalizeUntil = raw => {
+  const m = String(raw || '').trim().match(/^(\d{4})-(\d{2})-(\d{2})/)
+  return m ? `${m[1]}-${m[2]}-${m[3]}` : null
+}
+
 const durationMin = (start, end) => {
   const a = new Date(String(start).replace(' ', 'T'))
   const b = new Date(String(end).replace(' ', 'T'))
@@ -127,6 +133,7 @@ const create = async f => {
   const ama = /^y/i.test(f['is this an ama?'] || '')
   const photo = firstUrl(f['cover image'])
   const cadence = cadenceOf(f['repeats'])
+  const until = normalizeUntil(f['repeat until'])
 
   if (cadence) {
     await mkdir(RECURRING_DIR, { recursive: true })
@@ -135,6 +142,7 @@ const create = async f => {
     let n = 2
     while (existing.has(slug)) slug = `${slugify(title)}-${n++}`
     const def = { slug, title, location, ama, photo, cadence, next: start, durationMinutes: durationMin(start, end) }
+    if (until) def.until = until
     await writeFile(join(RECURRING_DIR, `${slug}.md`), serializeEvent(def, body))
     return emit(slug, `content/events/recurring/${slug}.md`, `Created recurring series (${cadence})`)
   }
@@ -180,6 +188,7 @@ const manage = async (f, slug) => {
   const newLocation = (f['location'] || '').trim()
   const newPhoto = firstUrl(f['cover image'])
   const newCadence = cadenceOf(f['repeats'])
+  const newUntil = normalizeUntil(f['repeat until'])
   const newBody = (f['description'] || '').trim()
 
   if (newTitle) data.title = newTitle
@@ -190,6 +199,7 @@ const manage = async (f, slug) => {
     if (newStart) data.next = newStart
     if (newCadence) data.cadence = newCadence
     if (newStart && newEnd) data.durationMinutes = durationMin(newStart, newEnd)
+    if (newUntil) data.until = newUntil
   } else {
     if (newStart) data.start = newStart
     if (newEnd) data.end = newEnd

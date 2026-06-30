@@ -8,7 +8,7 @@
 //
 // Idempotent: running it repeatedly with nothing due makes no changes.
 
-import { readdir, readFile, writeFile, rename } from 'node:fs/promises'
+import { readdir, readFile, writeFile, rename, unlink } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import { join, dirname, basename } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -78,6 +78,7 @@ const main = async () => {
     const duration = data.durationMinutes != null ? Number(data.durationMinutes) : null
     let next = data.next
     let changed = false
+    let ended = false
 
     // While the current occurrence has already ended, snapshot it and advance.
     while (next && asDate(addMinutes(next, duration)) < now) {
@@ -87,8 +88,8 @@ const main = async () => {
         title: data.title,
         start: next,
         end: addMinutes(next, duration),
-        leader: HOST,
-        leaderUsername: '',
+        leader: data.leader || HOST,
+        leaderUsername: data.leaderUsername || '',
         location: data.location || 'Online',
         ama: !!data.ama,
         isCanceled: false,
@@ -103,9 +104,18 @@ const main = async () => {
       console.log(`→ snapshot ${slug} (from ${data.title})`)
       next = advance(next, data.cadence)
       changed = true
+      // Bounded series: once the next occurrence would fall after `until`,
+      // the series is over — stop advancing and retire the definition below.
+      if (data.until && String(next).slice(0, 10) > data.until) {
+        ended = true
+        break
+      }
     }
 
-    if (changed) {
+    if (ended) {
+      await unlink(defPath) // series complete; archived occurrences stay in past/
+      console.log(`→ ${data.title} series ended (past ${data.until})`)
+    } else if (changed) {
       await writeFile(defPath, serializeEvent({ ...data, next }, body))
       console.log(`→ ${data.title} next = ${next}`)
     }

@@ -1,12 +1,14 @@
 ---
 slug: "cocuklar-icin-yapay-zeka-atolyesi-ai-workshop-for-kids"
 title: "Çocuklar için Yapay Zeka Atölyesi (AI Workshop for Kids)"
+leader: "Happy Hacking Space & Çocuk Çalışmaları Derneği (ÇocukÇA)"
 location: "Sümer Park, Diyarbakır"
 ama: false
 photo: "https://github.com/user-attachments/assets/27fbb9ba-54ad-4d7a-b249-a586a234a133"
 cadence: "Weekly"
 next: "2026-07-26 11:00:00"
 durationMinutes: 120
+until: "2026-08-30"
 ---
 
 A free weekly AI workshop for kids in Diyarbakır, organized together by **Happy Hacking Space** and **Çocuk Çalışmaları Derneği (ÇocukÇA)**.
