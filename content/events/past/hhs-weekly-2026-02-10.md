@@ -1,8 +1,8 @@
 ---
-slug: "happy-hacking-space-weekly-meeting-30b8fbd6"
+slug: "hhs-weekly-2026-02-10"
 title: "HHS Weekly"
-start: "2025-12-23 19:00:00"
-end: "2025-12-23 20:00:00"
+start: "2026-02-10 19:00:00"
+end: "2026-02-10 20:00:00"
 leader: "Happy Hacking Space"
 leaderUsername: ""
 location: "Happy Hacking Space HQ (Diyarbakir)"
