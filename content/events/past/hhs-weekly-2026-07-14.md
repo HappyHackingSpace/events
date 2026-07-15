@@ -1,12 +1,18 @@
 ---
-slug: "hhs-weekly"
+slug: "hhs-weekly-2026-07-14"
 title: "HHS Weekly"
+start: "2026-07-14 19:00:00"
+end: "2026-07-14 20:00:00"
+leader: "Happy Hacking Space"
+leaderUsername: ""
 location: "Happy Hacking Space HQ (Diyarbakir)"
 ama: false
+isCanceled: false
 photo: "https://github.com/user-attachments/assets/ef2eee4f-02d1-42b5-a135-b1d0730270c0"
-cadence: "Weekly"
-next: "2026-07-21 19:00:00"
-durationMinutes: "60"
+avatar: null
+youtube: null
+cal: null
+recurringId: "hhs-weekly"
 ---
 
 you're invited. every Tuesday.
