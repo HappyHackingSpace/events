@@ -38,7 +38,7 @@ body:
     attributes:
       label: Start
       description: "Local time (Europe/Istanbul), format YYYY-MM-DD HH:MM. For a recurring series this is the first occurrence."
-      placeholder: 2026-06-05 21:00
+      placeholder: "2026-06-05 21:00"
     validations:
       required: true
   - type: input
@@ -46,7 +46,7 @@ body:
     attributes:
       label: End
       description: "Local time (Europe/Istanbul), format YYYY-MM-DD HH:MM. Defaults to Start if left blank."
-      placeholder: 2026-06-05 23:00
+      placeholder: "2026-06-05 23:00"
     validations:
       required: false
   - type: input
@@ -54,7 +54,7 @@ body:
     attributes:
       label: Repeat until
       description: "Recurring series only. The last date the series can occur (Europe/Istanbul), format YYYY-MM-DD. After this date the series ends automatically. Leave blank for an open-ended series."
-      placeholder: 2026-08-30
+      placeholder: "2026-08-30"
     validations:
       required: false
   - type: input
