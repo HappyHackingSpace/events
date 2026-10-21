@@ -5,7 +5,7 @@ location: "Online"
 ama: false
 photo: "https://github.com/HappyHackingSpace/events/releases/download/event-image-assets/002-2d0709ea5e45148d.png"
 cadence: "Monthly"
-next: "2026-10-20 17:30:00"
+next: "2026-11-20 17:30:00"
 durationMinutes: "180"
 ---
 
