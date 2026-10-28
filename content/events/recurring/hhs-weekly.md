@@ -5,7 +5,7 @@ location: "Happy Hacking Space HQ (Diyarbakir)"
 ama: false
 photo: "https://github.com/user-attachments/assets/ef2eee4f-02d1-42b5-a135-b1d0730270c0"
 cadence: "Weekly"
-next: "2026-10-27 19:00:00"
+next: "2026-11-03 19:00:00"
 durationMinutes: "60"
 ---
 
